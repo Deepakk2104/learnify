@@ -9,14 +9,30 @@ export async function generateCourse(topic) {
   if (!topic.trim()) return [];
 
   const prompt = `
-  Create a short structured course outline on "${topic}".
-  Return JSON only with this structure:
-  [
-    { "title": "Lesson 1 title", "description": "brief overview", "videoQuery": "best YouTube query" },
-    ...
-  ]
-  Keep it concise (3-5 lessons).
-  `;
+You are an experienced web development instructor designing a mini-course on "${topic}".
+
+Generate 4-6 **comprehensive, actionable lessons** that truly teach the topic in sequence (from basics to practical application).
+
+Each lesson should include:
+- A **title** (short and clear)
+- A **description** (5-8 sentences) that TEACHES the concept step-by-step.
+  - Include short examples or scenarios.
+  - Explain *why* each concept matters.
+  - Use a friendly, beginner-focused tone.
+- A **videoQuery** string suggesting the exact topic to search on YouTube for that lesson.
+
+Return **only JSON** in this format:
+[
+  {
+    "title": "Lesson 1 title",
+    "description": "Detailed, educational explanation (5-8 sentences)",
+    "videoQuery": "best YouTube search phrase"
+  }
+]
+
+Make sure the lessons build on one another logically like a real course.
+The goal is to help a complete beginner **understand and apply** what they learn.
+`;
 
   const response = await groq.chat.completions.create({
     model: "llama-3.3-70b-versatile",
