@@ -1,30 +1,24 @@
 import { useState } from "react";
+import { generateCourse } from "../utils/generateCourse";
 
 export default function CourseGenerator() {
   const [topic, setTopic] = useState("");
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error] = useState("");
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     if (!topic.trim()) return;
     setLoading(true);
 
-    // Temporary mock data for now
-    setTimeout(() => {
-      const mockLessons = [
-        { title: "Introduction", description: "Learn the basics of " + topic },
-        {
-          title: "Deep Dive",
-          description: "Explore advanced concepts of " + topic,
-        },
-        {
-          title: "Practical Example",
-          description: "Apply " + topic + " in real-world scenarios",
-        },
-      ];
-      setLessons(mockLessons);
+    try {
+      const lessonsData = await generateCourse(topic);
+      setLessons(lessonsData);
+    } catch (err) {
+      console.error(err);
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (
@@ -49,6 +43,8 @@ export default function CourseGenerator() {
           {loading ? "Generating..." : "Generate"}
         </button>
       </div>
+
+      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
       {/* Lesson output */}
       <div className="space-y-4">
