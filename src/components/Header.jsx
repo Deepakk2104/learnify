@@ -1,9 +1,21 @@
 import { useState, useEffect } from "react";
 
 export default function Header() {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [darkMode, setDarkMode] = useState(true); // Default true
+
+  useEffect(() => {
+    // Apply dark mode immediately on mount
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    } else if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+      setDarkMode(true);
+    } else {
+      document.documentElement.classList.remove("dark");
+      setDarkMode(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
