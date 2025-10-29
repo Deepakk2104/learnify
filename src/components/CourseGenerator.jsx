@@ -17,7 +17,6 @@ export default function CourseGenerator() {
     try {
       const aiLessons = await generateCourse(topic);
 
-      // Fetch video for each lesson
       const lessonsWithVideos = await Promise.all(
         aiLessons.map(async (lesson) => {
           const video = await fetchVideo(lesson.videoQuery || lesson.title);
@@ -40,6 +39,7 @@ export default function CourseGenerator() {
         Generate Your AI Course Instantly ⚡
       </h2>
 
+      {/* Input + Button */}
       <div className="flex gap-3 justify-center mb-8">
         <input
           type="text"
@@ -59,15 +59,24 @@ export default function CourseGenerator() {
 
       {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
-      {/* Lessons section */}
-      <div className="space-y-5">
+      {/* Lessons */}
+      <div className="space-y-8">
         {lessons.map((lesson, i) => (
           <div
             key={i}
-            className="p-5 border border-gray-300 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800/50 shadow-sm hover:shadow-md transition-shadow duration-200"
+            className="p-6 border border-gray-300 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800/50 shadow-sm hover:shadow-md transition-all duration-200"
           >
-            <div className="flex flex-col md:flex-row md:items-start gap-4">
-              {lesson.video && (
+            {/* Lesson Title & Description */}
+            <h3 className="text-2xl font-semibold text-indigo-500 mb-2">
+              {lesson.title}
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-5 leading-relaxed">
+              {lesson.description}
+            </p>
+
+            {/* Video Section */}
+            {lesson.video && (
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <a
                   href={lesson.video.url}
                   target="_blank"
@@ -77,31 +86,22 @@ export default function CourseGenerator() {
                   <img
                     src={lesson.video.thumbnail}
                     alt={lesson.video.title}
-                    className="w-full md:w-48 rounded-xl border border-gray-300 dark:border-gray-700 hover:scale-[1.02] transition-transform duration-200"
+                    className="w-full sm:w-60 rounded-xl border border-gray-300 dark:border-gray-700 hover:scale-[1.02] transition-transform duration-200"
                   />
                 </a>
-              )}
 
-              <div>
-                <h3 className="text-xl font-semibold mb-2 text-indigo-500">
-                  {lesson.title}
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
-                  {lesson.description}
-                </p>
-
-                {lesson.video && (
+                <div className="flex-1 flex justify-center sm:justify-start">
                   <a
                     href={lesson.video.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-indigo-500 font-medium hover:underline inline-flex items-center gap-1"
+                    className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl transition-colors duration-200"
                   >
-                    ▶ Watch: {lesson.video.title}
+                    Click here to watch the video
                   </a>
-                )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
