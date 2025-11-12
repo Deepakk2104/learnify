@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { generateCourse } from "../utils/generateCourse";
 import { fetchVideo } from "../utils/fetchVideo";
+import { motion } from "framer-motion";
 
 export default function CourseGenerator() {
   const [topic, setTopic] = useState("");
@@ -35,9 +37,15 @@ export default function CourseGenerator() {
 
   return (
     <main className="w-full max-w-3xl mx-auto px-6 py-10">
-      <h2 className="text-3xl font-semibold mb-6 text-center">
+      {/* Animated Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35 }}
+        className="text-3xl font-semibold mb-6 text-center"
+      >
         Generate Your AI Course Instantly ⚡
-      </h2>
+      </motion.h2>
 
       {/* Input + Button */}
       <div className="flex gap-3 justify-center mb-8">
@@ -48,13 +56,17 @@ export default function CourseGenerator() {
           placeholder="Enter a topic (e.g. React Basics)"
           className="w-full max-w-md px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-indigo-500"
         />
-        <button
+
+        {/* Animated Button */}
+        <motion.button
           onClick={handleGenerate}
           disabled={loading}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl disabled:opacity-60"
         >
           {loading ? "Generating..." : "Generate"}
-        </button>
+        </motion.button>
       </div>
 
       {error && <p className="text-red-500 text-center mb-4">{error}</p>}
@@ -62,11 +74,14 @@ export default function CourseGenerator() {
       {/* Lessons */}
       <div className="space-y-8">
         {lessons.map((lesson, i) => (
-          <div
+          <motion.div
             key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: i * 0.07 }}
             className="p-6 border border-gray-300 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800/50 shadow-sm hover:shadow-md transition-all duration-200"
           >
-            {/* Lesson Title & Description */}
+            {/* Lesson Title + Description */}
             <h3 className="text-2xl font-semibold text-indigo-500 mb-2">
               {lesson.title}
             </h3>
@@ -102,7 +117,7 @@ export default function CourseGenerator() {
                 </div>
               </div>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
 

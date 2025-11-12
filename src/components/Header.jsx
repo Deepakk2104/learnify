@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Header() {
-  const [darkMode, setDarkMode] = useState(true); // Default true
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    // Apply dark mode immediately on mount
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
@@ -29,15 +30,25 @@ export default function Header() {
 
   return (
     <header className="w-full py-4 border-b border-gray-300 dark:border-gray-700 flex justify-between items-center px-6 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md sticky top-0 z-50">
-      <h1 className="text-2xl font-bold tracking-wide">
+      {/* Animated Title */}
+      <motion.h1
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35 }}
+        className="text-2xl font-bold tracking-wide"
+      >
         Learnify<span className="text-indigo-500">.</span>
-      </h1>
-      <button
+      </motion.h1>
+
+      {/* Animated Dark Mode Button */}
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => setDarkMode(!darkMode)}
-        className="px-3 py-1.5 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:opacity-80"
+        className="px-3 py-1.5 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:opacity-80 transition-all"
       >
         {darkMode ? "Light Mode" : "Dark Mode"}
-      </button>
+      </motion.button>
     </header>
   );
 }
