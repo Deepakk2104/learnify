@@ -29,9 +29,7 @@ Built using React, Tailwind, Groq (Llama 3.1), YouTube API, and Framer Motion.
 
 ## Preview
 
-(Add your deployment link or screenshot here)
-Example:
-https://your-site-link.vercel.app
+https://learnify-sigma-two.vercel.app/
 
 ---
 
@@ -75,6 +73,6 @@ src/
 
 ## Author
 
-Deepak (Bubu)
+Deepak 
 Frontend Developer — React, JavaScript, AI Tools
 GitHub | LinkedIn
