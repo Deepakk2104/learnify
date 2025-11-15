@@ -1,16 +1,80 @@
-# React + Vite
+# Learnify — AI Course Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Learnify is a simple, fast AI-powered course generator. Enter any topic and get a structured mini-course with 3–5 lessons, each including a short explanation and a relevant YouTube video.
 
-Currently, two official plugins are available:
+Built using React, Tailwind, Groq (Llama 3.1), YouTube API, and Framer Motion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- AI course generation using Groq (Llama 3.1)
+- Auto YouTube video recommendations per lesson
+- Dark / Light mode with persistent theme
+- Clean UI built with Tailwind CSS
+- Smooth animations using Framer Motion
+- Fully responsive, single-page design
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React (Vite)
+- Tailwind CSS
+- Groq API
+- YouTube Data API v3
+- Framer Motion
+
+---
+
+## Preview
+
+(Add your deployment link or screenshot here)
+Example:
+https://your-site-link.vercel.app
+
+---
+
+## Getting Started
+
+Clone the project:
+
+git clone https://github.com/your-username/learnify.git
+cd learnify
+
+Install dependencies:
+
+npm install
+
+Create a .env file in the root directory and add:
+
+VITE_GROQ_API_KEY=your_groq_key
+VITE_YOUTUBE_API_KEY=your_youtube_key
+
+Start the development server:
+
+npm run dev
+
+---
+
+## Project Structure
+
+src/
+ ├─ components/
+ │   ├─ Header.jsx
+ │   ├─ CourseGenerator.jsx
+ │   └─ Footer.jsx
+ ├─ utils/
+ │   ├─ generateCourse.js
+ │   └─ fetchVideo.js
+ ├─ App.jsx
+ ├─ main.jsx
+ └─ index.css
+
+---
+
+## Author
+
+Deepak (Bubu)
+Frontend Developer — React, JavaScript, AI Tools
+GitHub | LinkedIn
