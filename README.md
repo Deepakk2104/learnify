@@ -68,7 +68,7 @@ Learnify is built with **React**, **TailwindCSS**, and **Groq (Llama 3.1)** to g
 ### **1. Clone the repo**
 
 ```bash
-git clone https://github.com/<your-username>/learnify.git
+git clone https://github.com/Deepakk2104/learnify.git
 cd learnify
 ```
 
@@ -126,11 +126,13 @@ Contributions are welcome.
 
 ---
 ## **Future Enhancements**
--📝 Edit lesson titles and descriptions
--🔗 Copy/share course data
--📄 Export course to PDF
--🧠 Full detailed lesson content generation
--📊 Learning stats based on topics
+
+- 📝 Edit lesson titles and descriptions  
+- 🔗 Copy/share course data  
+- 📄 Export course to PDF  
+- 🧠 Full detailed lesson content generation  
+- 📊 Learning stats based on topics  
+
 
 ## **License**
 
