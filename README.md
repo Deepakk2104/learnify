@@ -26,14 +26,13 @@ Learnify is built with **React**, **TailwindCSS**, and **Groq (Llama 3.1)** to g
   - 📝 Short lesson explanations  
   - 🎥 Relevant YouTube video suggestions
 
-> No dashboard or login required — instant AI course creation ⚡
+- No dashboard or login required — instant AI course creation ⚡
 
 ---
 
 ## **Live Demo**
 
-### 🌐 **Website:** _Add your Learnify deployment link here_
-
+## **Website:** https://learnify-sigma-two.vercel.app/
 ---
 
 ## **Features**
@@ -71,24 +70,25 @@ Learnify is built with **React**, **TailwindCSS**, and **Groq (Llama 3.1)** to g
 ```bash
 git clone https://github.com/<your-username>/learnify.git
 cd learnify
-2. Install dependencies
-bash
-Copy code
-npm install
-3. Add API keys
-Create a .env file and add:
+```
 
-env
-Copy code
-VITE_GROQ_API_KEY=your_groq_key
-VITE_YOUTUBE_API_KEY=your_youtube_data_api_key
-4. Start development server
-bash
-Copy code
+### **2. Install dependencies**
+
+```bash
+npm install
+```
+
+### **3. Start development server**
+
+```bash
 npm run dev
-Project Structure
-arduino
-Copy code
+```
+
+---
+
+## **Project Structure**
+
+```
 learnify/
 │
 ├── src/
@@ -101,27 +101,44 @@ learnify/
 ├── package.json
 ├── vite.config.js
 └── README.md
-Build for Production
-bash
-Copy code
+```
+## **Build for Production**
+
+```bash
 npm run build
-Deploy the generated dist/ folder using:
+```
+Deploy the `dist/` folder using:
 
-Vercel
+- Vercel
+- Firebase Hosting
+- Netlify
 
-Netlify
+---
 
-GitHub Pages
+## **Contributing**
 
-Future Enhancements
-📝 Edit lesson titles and descriptions
-🔗 Copy/share course data
-📄 Export course to PDF
-🧠 Full detailed lesson content generation
-📊 Learning stats based on topics
+Contributions are welcome.
 
-License
-Licensed under the MIT License.
+1. Fork the project
+2. Create your feature branch
+3. Commit changes
+4. Open a Pull Request
 
-Author
-Developed by Deepakk2104
+---
+## **Future Enhancements**
+-📝 Edit lesson titles and descriptions
+-🔗 Copy/share course data
+-📄 Export course to PDF
+-🧠 Full detailed lesson content generation
+-📊 Learning stats based on topics
+
+## **License**
+
+Licensed under the **MIT License**.
+
+---
+
+## **Author**
+
+**Developed by [Deepakk2104](https://github.com/Deepakk2104)**
+
