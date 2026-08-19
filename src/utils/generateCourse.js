@@ -40,7 +40,7 @@ Avoid repeating similar explanations between lessons.
 `;
 
   const response = await groq.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-120b",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.6, // slightly lower for more structured, consistent responses
   });
